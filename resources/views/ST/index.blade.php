@@ -26,7 +26,7 @@
                             <td>{{ $item -> format_document }}</td>
                             <td>{{ $item -> PIC }}</td>
                             <td><span
-                                    class="badge rounded-pill {{ $item -> status == 'On Process' ? 'bg-secondary' : '' }} {{ $item -> status == 'On Going' ? 'bg-warning' : '' }}{{ $item -> status == 'Done' ? 'bg-success' : '' }}">{{ $item -> status }}</span>
+                                    class="badge rounded-pill {{ $item -> status ==  'On Progress' ? 'bg-secondary' : '' }} {{ $item -> status == 'On Going' ? 'bg-warning' : '' }}{{ $item -> status == 'Done' ? 'bg-success' : '' }}">{{ $item -> status }}</span>
                             </td>
                             <td>
                                 <div class="dropdown">

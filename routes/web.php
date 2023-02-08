@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::controller(MainController::class)->group(function () {
+    // Welcome \\
+    Route::get('/', [MainController::class, 'welcome'])->name('welcome');
+
     // DQ Section \\
     Route::get('/dq', [MainController::class, 'dq'])->name('dq');
     Route::get('/dq-create', [MainController::class, 'createDq'])->name('create-dq');

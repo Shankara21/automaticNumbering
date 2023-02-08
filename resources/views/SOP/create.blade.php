@@ -13,7 +13,7 @@
                         <textarea id="basic-default-message" class="form-control" data-gramm="false"
                             wt-ignore-input="true" data-quillbot-element="hjmwqztesDJ_JJyVBhz74"
                             data-dl-input-translation="true" name="project"></textarea>
-                            <input type="hidden" name="category_id" value="12">
+                            <input type="hidden" name="category_id" value="13">
                     </div>
                     <div class="row">
                         <div class="col-6">

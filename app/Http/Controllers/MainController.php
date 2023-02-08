@@ -9,6 +9,25 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    // Welcome \\
+    public function welcome()
+    {
+        $dq = mst_document::where('category_id', 1)->count();
+        $iq = mst_document::where('category_id', 2)->count();
+        $pq = mst_document::where('category_id', 3)->count();
+        $pv = mst_document::where('category_id', 4)->count();
+        $oq = mst_document::where('category_id', 5)->count();
+        $rv = mst_document::where('category_id', 6)->count();
+        $fat = mst_document::where('category_id', 7)->count();
+        $fr = mst_document::where('category_id', 8)->count();
+        $ms = mst_document::where('category_id', 9)->count();
+        $ps = mst_document::where('category_id', 10)->count();
+        $qs = mst_document::where('category_id', 11)->count();
+        $st = mst_document::where('category_id', 12)->count();
+        $sop = mst_document::where('category_id', 13)->count();
+        return view('welcome', compact('dq', 'iq', 'pq', 'pv', 'oq', 'rv', 'fat', 'fr', 'ms', 'ps', 'qs', 'st', 'sop'));
+    }
+
     // DQ Section \\
     public function dq()
     {
@@ -30,15 +49,15 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
         return redirect()->route('dq');
@@ -47,7 +66,7 @@ class MainController extends Controller
     // IQ Section \\
     public function iq()
     {
-         $listDocument = mst_document::where('category_id', 2)->get();
+        $listDocument = mst_document::where('category_id', 2)->get();
         return view('IQ.index', compact('listDocument'));
     }
     public function createIq()
@@ -65,24 +84,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('iq');
     }
 
     // PQ Section \\
     public function pq()
     {
-         $listDocument = mst_document::where('category_id', 3)->get();
+        $listDocument = mst_document::where('category_id', 3)->get();
         return view('PQ.index', compact('listDocument'));
     }
     public function createPq()
@@ -100,24 +119,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('pq');
     }
 
     // PV Section \\
     public function pv()
     {
-         $listDocument = mst_document::where('category_id', 4)->get();
+        $listDocument = mst_document::where('category_id', 4)->get();
         return view('PV.index', compact('listDocument'));
     }
     public function createPv()
@@ -135,24 +154,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('pv');
     }
 
     // OQ Section \\
     public function oq()
     {
-         $listDocument = mst_document::where('category_id', 5)->get();
+        $listDocument = mst_document::where('category_id', 5)->get();
         return view('OQ.index', compact('listDocument'));
     }
     public function createOq()
@@ -170,24 +189,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('oq');
     }
 
     // RV Section \\
     public function rv()
     {
-         $listDocument = mst_document::where('category_id', 6)->get();
+        $listDocument = mst_document::where('category_id', 6)->get();
         return view('RV.index', compact('listDocument'));
     }
     public function createRv()
@@ -205,24 +224,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('rv');
     }
 
     // FAT Section \\
     public function fat()
     {
-         $listDocument = mst_document::where('category_id', 7)->get();
+        $listDocument = mst_document::where('category_id', 7)->get();
         return view('FAT.index', compact('listDocument'));
     }
     public function createFat()
@@ -240,24 +259,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('fat');
     }
 
     // FR Section \\
     public function fr()
     {
-         $listDocument = mst_document::where('category_id', 8)->get();
+        $listDocument = mst_document::where('category_id', 8)->get();
         return view('FR.index', compact('listDocument'));
     }
     public function createFr()
@@ -275,24 +294,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('fr');
     }
 
     // MS Section \\
     public function ms()
     {
-         $listDocument = mst_document::where('category_id', 9)->get();
+        $listDocument = mst_document::where('category_id', 9)->get();
         return view('MS.index', compact('listDocument'));
     }
     public function createMs()
@@ -310,24 +329,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('ms');
     }
 
     // PS Section \\
     public function ps()
     {
-         $listDocument = mst_document::where('category_id', 10)->get();
+        $listDocument = mst_document::where('category_id', 10)->get();
         return view('PS.index', compact('listDocument'));
     }
     public function createPs()
@@ -345,24 +364,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('ps');
     }
 
     // QS Section \\
     public function qs()
     {
-         $listDocument = mst_document::where('category_id', 11)->get();
+        $listDocument = mst_document::where('category_id', 11)->get();
         return view('QS.index', compact('listDocument'));
     }
     public function createQs()
@@ -380,24 +399,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('qs');
     }
 
     // ST Section \\
     public function st()
     {
-         $listDocument = mst_document::where('category_id', 12)->get();
+        $listDocument = mst_document::where('category_id', 12)->get();
         return view('ST.index', compact('listDocument'));
     }
     public function createSt()
@@ -415,24 +434,24 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('st');
     }
 
     // SOP Section \\
     public function sop()
     {
-         $listDocument = mst_document::where('category_id', 13)->get();
+        $listDocument = mst_document::where('category_id', 13)->get();
         return view('SOP.index', compact('listDocument'));
     }
     public function createSop()
@@ -450,17 +469,17 @@ class MainController extends Controller
             'status' => 'required'
         ]);
         $category = mst_category::where('id', $validateData['category_id'])->first();
-        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->first();
+        $listDoc = mst_document::where('category_id', $validateData['category_id'])->orderBy('created_at', 'desc')->count();
         // Mengambil tahun sekarang
         $tahun = substr(date('Y'), 2);
         if ($listDoc == null) {
             $validateData['format_document'] = '001/' . 'K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id < 10) {
-            $validateData['format_document'] = '00' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
-        } elseif ($listDoc->id >= 10) {
-            $validateData['format_document'] = '0' . $listDoc->id + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc < 10) {
+            $validateData['format_document'] = '00' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
+        } elseif ($listDoc >= 10) {
+            $validateData['format_document'] = '0' . $listDoc + 1 . '/K/' . 'TD-' . $request->section . '/' . $category->name . '/' . $tahun;
         }
         mst_document::create($validateData);
-        return redirect()->route('dq');
+        return redirect()->route('sop');
     }
 }
