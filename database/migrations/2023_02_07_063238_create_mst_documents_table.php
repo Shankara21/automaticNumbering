@@ -21,7 +21,7 @@ class CreateMstDocumentsTable extends Migration
             $table->string('format_document');
             $table->string('PIC');
             $table->string('status');
-            $table->string('serah_terima');
+            $table->string('serah_terima')->nullable();
             $table->timestamps();
         });
     }

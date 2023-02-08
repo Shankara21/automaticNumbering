@@ -6,14 +6,14 @@
             <div class="card-header d-flex justify-content-between align-items-center">
             </div>
             <div class="card-body">
-                <form method="POST" action="/dq-store">
+                <form method="POST" action="/ps-store">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Project Name</label>
                         <textarea id="basic-default-message" class="form-control" data-gramm="false"
                             wt-ignore-input="true" data-quillbot-element="hjmwqztesDJ_JJyVBhz74"
                             data-dl-input-translation="true" name="project"></textarea>
-                            <input type="hidden" name="category_id" value="1">
+                            <input type="hidden" name="category_id" value="10">
                     </div>
                     <div class="row">
                         <div class="col-6">

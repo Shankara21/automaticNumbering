@@ -4,7 +4,7 @@
     <div class="row h-100">
         <div class="card h-100">
             <div class="py-3">
-                <a href="" class="btn btn-primary">Create new</a>
+                <a href="/rv-create" class="btn btn-primary">Create new</a>
             </div>
             <div class="table-responsive text-nowrap h-100">
                 <table class="table">
@@ -19,12 +19,15 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        @forelse ($listDocument as $item)
                         <tr>
-                            <td>Project</td>
-                            <td>Line</td>
-                            <td>Format Code</td>
-                            <td>PIC</td>
-                            <td>Status</td>
+                            <td>{{ $item -> project }}</td>
+                            <td>{{ $item -> line }}</td>
+                            <td>{{ $item -> format_document }}</td>
+                            <td>{{ $item -> PIC }}</td>
+                            <td><span
+                                    class="badge rounded-pill {{ $item -> status == 'On Process' ? 'bg-secondary' : '' }} {{ $item -> status == 'On Going' ? 'bg-warning' : '' }}{{ $item -> status == 'Done' ? 'bg-success' : '' }}">{{ $item -> status }}</span>
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -40,6 +43,11 @@
                                 </div>
                             </td>
                         </tr>
+                        @empty
+                        <tr class="text-center">
+                            <td colspan="6">Belum ada data</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
