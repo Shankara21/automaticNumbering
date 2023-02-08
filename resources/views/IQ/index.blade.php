@@ -4,6 +4,9 @@
     <div class="row h-100">
         <div class="card h-100">
             <div class="py-3">
+                <h1 class="text-center">
+                    <u>Instalation Qualification</u>
+                </h1>
                 <a href="/iq-create" class="btn btn-primary">Create new</a>
             </div>
             <div class="table-responsive text-nowrap h-100">

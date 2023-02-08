@@ -9,4 +9,9 @@ class mst_category extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function documents()
+    {
+        return $this->hasMany(mst_document::class);
+    }
 }

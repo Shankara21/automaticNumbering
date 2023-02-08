@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/dq" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class=" d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/design.png" alt="chart success" class="rounded" width="75" />
@@ -17,9 +17,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/iq" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/instal.png" alt="chart success" class="rounded" width="75" />
@@ -30,9 +30,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/pq" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/performance.png" alt="chart success" class="rounded" width="75" />
@@ -43,9 +43,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/pv" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/protocol.png" alt="chart success" class="rounded" width="75" />
@@ -56,9 +56,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/oq" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/operation.png" alt="chart success" class="rounded" width="75" />
@@ -69,9 +69,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/rv" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/report.png" alt="chart success" class="rounded" width="75" />
@@ -82,9 +82,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/fat" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/fat.png" alt="chart success" class="rounded" width="75" />
@@ -95,9 +95,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/fr" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/switch.png" alt="chart success" class="rounded" width="75" />
@@ -108,9 +108,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/ms" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/material.png" alt="chart success" class="rounded" width="75" />
@@ -121,9 +121,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/ps" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/package.png" alt="chart success" class="rounded" width="75" />
@@ -134,9 +134,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/qs" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/quality.png" alt="chart success" class="rounded" width="75" />
@@ -147,9 +147,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/st" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/stab.png" alt="chart success" class="rounded" width="75" />
@@ -160,9 +160,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <a href="/sop" class="m-3">
-                        <div class="card">
+                        <div class="card" style="height:215px;">
                             <div class="card-body">
                                 <div class="d-flex justify-content-center">
                                     <img src=" /img/icons/dashboard/sop.png" alt="chart success" class="rounded" width="75" />

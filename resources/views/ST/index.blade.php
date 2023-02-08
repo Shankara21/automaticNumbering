@@ -4,6 +4,9 @@
     <div class="row h-100">
         <div class="card h-100">
             <div class="py-3">
+                <h1 class="text-center">
+                    <u>Stability Test</u>
+                </h1>
                 <a href="/st-create" class="btn btn-primary">Create new</a>
             </div>
             <div class="table-responsive text-nowrap h-100">
